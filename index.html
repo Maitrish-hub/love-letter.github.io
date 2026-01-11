@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4e8a, #ffb347);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    width: 390px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    animation: fadeIn 2s ease;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.1em;
+    opacity: 0.95;
+}
+
+.heart {
+    font-size: 3.5em;
+    margin: 15px 0;
+    animation: heartbeat 1.4s infinite;
+}
+
+#typing {
+    margin-top: 20px;
+    font-size: 1em;
+    line-height: 1.8;
+    min-height: 120px;
+}
+
+footer {
+    margin-top: 25px;
+    font-size: 0.85em;
+    opacity: 0.9;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌹 Falling Roses */
+.rose {
+    position: absolute;
+    top: -30px;
+    font-size: 22px;
+    animation: fall linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+    <h1>My Mon❤️</h1>
+    <h2>You are my forever</h2>
+
+    <div class="heart">💖</div>
+
+    <!-- Typing Love Letter -->
+    <div id="typing"></div>
+
+    <footer>
+        Forever Yours 🌹<br>
+        — With Endless Love
+    </footer>
+</div>
+
+<script>
+/* ⌨️ Typing Love Letter */
+const text = `My love,
+Every time I think of you, my heart smiles.
+You are the reason my days feel lighter
+and my nights feel warmer.
+
+I don’t promise perfection,
+but I promise honesty, loyalty,
+and a love that grows stronger every day.
+
+No matter where life takes us,
+my heart will always find its way back to you. 💕`;
+
+let index = 0;
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+    }
+}
+typeEffect();
+
+/* 🌹 Falling Roses Animation */
+setInterval(() => {
+    const rose = document.createElement("div");
+    rose.className = "rose";
+    rose.innerHTML = "🌹";
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.animationDuration = (Math.random() * 3 + 5) + "s";
+    document.body.appendChild(rose);
+
+    setTimeout(() => {
+        rose.remove();
+    }, 8000);
+}, 500);
+</script>
+
+</body>
+</html>
